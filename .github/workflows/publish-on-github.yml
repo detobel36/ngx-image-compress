@@ -5,16 +5,16 @@ on:
 
 jobs:
   build-test-deploy:
-    name: Build, test, bump version and deploy the library on npm
+    name: Build, test, bump version and deploy the library on github
     runs-on: ubuntu-latest
 
     steps:
+      - uses: actions/checkout@v3
+
       - uses: actions/setup-node@v3
         with:
           node-version: "16"
           registry-url: "https://npm.pkg.github.com"
-
-      - uses: actions/checkout@v3
 
       - name: "Install dependency"
         run: npm ci
